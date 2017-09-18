@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="XamarinIntro.XamarinIntroPage" 
+    Title="Built-In Xamarin.Forms Views">
+    <ContentPage.Content>
+        <ScrollView x:Name="scroll">
+            <StackLayout Padding="10,30,10,10">
+                <StackLayout Orientation="Horizontal" BackgroundColor="Silver"> 
+                    <Label Text="ActivityIndicator:"/>
+                    <ActivityIndicator IsRunning="true" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"> 
+                    <Label Text="BoxView:"/>
+                    <BoxView BackgroundColor="Red" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" BackgroundColor="Silver"> 
+                    <Label Text="Button:"/>
+                    <Button Text="Button" BackgroundColor="White" WidthRequest="150"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"> 
+                    <Label Text="DatePicker:"/>
+                    <DatePicker Date="01/21/2016" /> 
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" BackgroundColor="Silver">
+                    <Label Text="Editor:"/>
+                    <Editor Text="Multi-line Entry" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"> 
+                    <Label Text="Entry:"/>
+                    <Entry Placeholder="Place holder here"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" BackgroundColor="Silver"> 
+                    <Label Text="Image icon.png: "/>
+                    <Image Source="icon.png"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal"> 
+                    <Label Text="Label: "/>
+                    <Label Text="This is a Label"/>
+                </StackLayout>
+
+                <Picker Title="Picker" BackgroundColor="Silver">
+                    <Picker.Items>
+                        <x:String>1</x:String> 
+                        <x:String>2</x:String>
+                        <x:String>3</x:String>
+                    </Picker.Items>
+                    <!--<Picker.Effects>
+                        <effects:PickerEffect BackgroundHexColor="White" TextHexColor="{StaticResource EntryTextColor}" />
+                    </Picker.Effects>-->
+                </Picker> 
+                <StackLayout Orientation="Horizontal"> 
+                    <Label Text="ProgressBar: 50%" />
+                    <ProgressBar Progress="0.5" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+               
+                <SearchBar Placeholder = "Enter search term" BackgroundColor="Silver"/>
+
+                <StackLayout Orientation="Horizontal"> 
+                    <Label Text="Slider: 75%"/>
+                    <Slider Value="0.75" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" BackgroundColor="Silver"> 
+                    <Label Text="Stepper: "/>
+                    <Stepper Value="0.5" Minimum="0" Maximum="10" Increment="0.1"/>
+                </StackLayout>
+                
+
+                <StackLayout Orientation="Horizontal"> 
+                    <Label Text="Switch:"/>
+                    <Switch IsToggled="true" />
+                </StackLayout>
+                
+                <StackLayout Orientation="Horizontal" BackgroundColor="Silver"> 
+                    <Label Text="TimePicker:"/>
+                    <TimePicker />
+                </StackLayout>
+
+                <TableView Intent="Form" BackgroundColor="Silver">
+                    <TableRoot>
+                        <TableSection Title="Built-In Cells:">
+                            <TextCell Text="TextCell" Detail="TextCell Detail" />
+                            <EntryCell Label="EntryCell" Text="EntryCell Text" />
+                            <SwitchCell Text="SwitchCell Text" />
+                            <ImageCell Text="ImageCell Text" Detail="ImageCell Detail" ImageSource="icon.png" />
+                        </TableSection>
+                        <TableSection Title="Custom Cell">
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:effect="clr-namespace:XamarinIntro.Effects;assembly=XamarinIntro" 
+    x:Class="XamarinIntro.EffectsPage">
+    <StackLayout>
+        <Label x:Name="txt" Text="Effect Shadow!" VerticalOptions="Center" HorizontalOptions="Center" />
+        <Label x:Name="txt_rout" Text="RoutingEffect Shadow Code!" VerticalOptions="Center" HorizontalOptions="Center" />   
+        <Label x:Name="txt_rout_xaml" effect:ShadowEffect.Color="Blue" Text="RoutingEffect Shadow XAML!" VerticalOptions="Center" HorizontalOptions="Center" >
+            <Label.Effects>
+                <effect:ShadowEffect XOffset="1" YOffset="5" Radius="1"/>
+            </Label.Effects>
+        </Label>
+
+        <Button x:Name="btn" effect:ShadowEffect.Color="Teal" Font="Bold,Medium"
+            Text="Change ColorProperty" TextColor="Black" BackgroundColor="White"
+            BorderColor="Black" BorderWidth="1" >
+            <Button.Effects>
+                <effect:ShadowEffect XOffset="3" YOffset="3" Radius="0.5"/>
+            </Button.Effects>
+        </Button>
+    </StackLayout>
+
+</ContentPage>

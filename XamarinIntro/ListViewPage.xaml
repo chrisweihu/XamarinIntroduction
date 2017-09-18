@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:XamarinIntro;assembly=XamarinIntro"
+    x:Class="XamarinIntro.ListViewPage"
+    Title="ListView"
+    BindingContext="{x:Static local:SimpsonFactory.Characters}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageResourceConverter x:Key="imageResourceCvt" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="5,0,5,5" Android="5,0,5,5" WinPhone="5,0,5,5"/>
+    </ContentPage.Padding>
+    
+    <ContentPage.Content>
+        <!--"{Binding .}" Means Binding to 'this.BindingContext' "-->
+        <!--When User clicked on a row, 'ItemSelected' event is raised first, then 'ItemTapped'-->
+        <!--'ItemTapped' event can Only be triggered by User Interaction-->
+        <!--'ItemSelected' however can be triggered by programmatically set SelectedItem value by code-->
+        <!--If we use SelectedItem="{Binding SelectedPerson, Mode=TwoWay}", then we don't need ItemSelected event'-->
+        <!--'RefreshCommand' property can also be used to implement refresh logic as MVVM-compatible command 
+            <ListView ... IsPullToRefrashEnabled="ture" 
+                          IsRefrashing="{Binding IsRefreshing, Mode=TwoWay}"
+                          RefreshCommand="{Binding RefreshCommand}"/>         -->
+        <ListView x:Name="listView" ItemsSource="{Binding .}" 
+            ItemSelected="Handle_ItemSelected" 
+            ItemTapped="Handle_ItemTapped" 
+            IsPullToRefreshEnabled="true"
+            Refreshing="Handle_Refreshing">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell 
+                        Text="{Binding Name}" 
+                        Detail="{Binding Email}" 
+                        ImageSource="{Binding HeadshotUrl, Converter={StaticResource imageResourceCvt}}">
+                        <ImageCell.ContextActions>
+                            <MenuItem Clicked="OnEdit"   CommandParameter="{Binding .}" Text="Edit"   IsDestructive="false"/>
+                            <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}" Text="Delete" IsDestructive="true"/>
+                        </ImageCell.ContextActions>
+                    </ImageCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:view="clr-namespace:XamarinIntro.Views;assembly=XamarinIntro"
+    x:Class="XamarinIntro.CustomRenderersPage">
+    <ContentPage.Content>
+        <Grid x:Name="mainLayout" Padding="0">
+        <view:SketchView x:Name="sketchView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" InkColor="Red" />
+        </Grid> 
+    </ContentPage.Content>
+</ContentPage>

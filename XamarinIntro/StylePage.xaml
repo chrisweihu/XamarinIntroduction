@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XamarinIntro.StylePage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ButtonColor">Blue</Color>
+            <Color x:Key="GreenButtonColor">#DD8bbf64</Color>
+            <Color x:Key="OrangeButtonColor">#DDF6A623</Color>
+            
+            <Style x:Key="View_Style" TargetType="View" >
+                <Setter Property="RelativeLayout.XConstraint"           Value="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.2,  Constant=0}" />
+                <Setter Property="RelativeLayout.YConstraint"           Value="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0.1,  Constant=0}" />
+                <Setter Property="RelativeLayout.WidthConstraint"       Value="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.6,  Constant=0}" />
+                <Setter Property="RelativeLayout.HeightConstraint"      Value="{ConstraintExpression Type=RelativeToParent, Property=Height,Factor=0.15, Constant=0}" />
+            </Style>
+            
+            <Style x:Key="Button_Style_1" TargetType="Button">                    
+                <Setter Property="BackgroundColor"                      Value="{StaticResource GreenButtonColor}" />
+                <Setter Property="TextColor"                            Value="Yellow" /> 
+                <Setter Property="BorderRadius"                         Value="15" />
+                <Setter Property="FontSize"                             Value="Large" />
+                <Setter Property="FontAttributes"                       Value="Bold" />
+            </Style>
+            <Style x:Key="Button_Style_2" TargetType="Button" >               
+                <Setter Property="BackgroundColor"                      Value="{StaticResource OrangeButtonColor}" />
+                <Setter Property="TextColor"                            Value="Black" /> 
+                <Setter Property="BorderRadius"                         Value="25" />
+                <Setter Property="FontSize"                             Value="Medium" />
+                <Setter Property="FontAttributes"                       Value="Bold" />               
+            </Style>
+            <Style x:Key="Button_Style" TargetType="Button" BasedOn="{StaticResource Button_Style_1}"/>                    
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <RelativeLayout>
+            <Button Text="Change Button_Style" TextColor="White" BackgroundColor="Black" Style="{StaticResource View_Style}" Clicked="Handle_Clicked"/>
+
+            <Button Text="Static Button"  Style="{StaticResource Button_Style}"
+                RelativeLayout.XConstraint      ="{ConstraintExpression Type=RelativeToParent,  Property=Width,     Factor=0.2,   Constant=0}"
+                RelativeLayout.YConstraint      ="{ConstraintExpression Type=RelativeToParent,  Property=Height,    Factor=0.3,   Constant=0}"
+                RelativeLayout.WidthConstraint  ="{ConstraintExpression Type=RelativeToParent,  Property=Width,     Factor=0.6,   Constant=0}"
+                RelativeLayout.HeightConstraint ="{ConstraintExpression Type=RelativeToParent,  Property=Height,    Factor=0.15,   Constant=0}"/>
+
+            <Button Text="Dynamic Button" Style="{DynamicResource Button_Style}" 
+                RelativeLayout.XConstraint      ="{ConstraintExpression Type=RelativeToParent,  Property=Width,     Factor=0.2,   Constant=0}"
+                RelativeLayout.YConstraint      ="{ConstraintExpression Type=RelativeToParent,  Property=Height,    Factor=0.5,   Constant=0}"
+                RelativeLayout.WidthConstraint  ="{ConstraintExpression Type=RelativeToParent,  Property=Width,     Factor=0.6,   Constant=0}"
+                RelativeLayout.HeightConstraint ="{ConstraintExpression Type=RelativeToParent,  Property=Height,    Factor=0.15,  Constant=0}"/>
+
+        </RelativeLayout>
+	</ContentPage.Content>
+</ContentPage>
