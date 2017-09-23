@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace XamarinIntro.ViewModels
 {
@@ -27,5 +28,15 @@ namespace XamarinIntro.ViewModels
 			get { return _userName; }
 			set { _userName = value; OnPropertyChanged("UserName"); }
 		}
+
+        public ICommand ClickCommand { get; private set; }
+
+        public SimpleViewModel()
+        {
+            ClickCommand = new Xamarin.Forms.Command<string>((obj) => { 
+                App.Current.MainPage.DisplayAlert("ClickCommand", obj, "OK"); 
+            }); 
+        }
+		
 	}
 }

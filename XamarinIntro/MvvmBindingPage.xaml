@@ -9,15 +9,18 @@
         <StackLayout BackgroundColor="Gray" Padding="20" Spacing="20">
 
             <!-- Short Binding syntax Omit Binding Source and Path When BindingContext is assigned-->
-            <Label Text="{Binding Title}" TextColor="Black" BackgroundColor="White"/>
+            <Label Text="{Binding Title}" TextColor="White" Font="Large,Bold"/>
 
             <!-- OneWay and TwoWay Binding-->
             <Label Text="{Binding UserName}" TextColor="Blue" BackgroundColor="White"/>
-            <Entry Text="{Binding UserName, Mode=TwoWay}" TextColor="Blue" BackgroundColor="White"/>
+            <Entry Text="{Binding UserName, Mode=TwoWay}" TextColor="Blue" BackgroundColor="White" FontSize="Large" FontAttributes="Bold"/>
 
             <!-- View To View Binding-->
             <Label Text="View To View Binding" Rotation="{Binding Source={x:Reference slider}, Path=Value}" TextColor="Blue" Font="Large,Bold"/>
             <Slider x:Name="slider" Minimum="0" Maximum="360" />
+
+            <!-- Command Binding-->
+            <Button Text="Command" Command="{Binding ClickCommand}" CommandParameter="To Click, Or Not To Click." TextColor="White" BackgroundColor="Navy"/>
         </StackLayout>
 	</ContentPage.Content>
 </ContentPage>
